@@ -1,0 +1,35 @@
+{% extends "layout2.html" %}
+{% block content %}
+<body>
+
+
+
+
+<div class="container">
+
+    <div class="row p-4">
+        {% for doc in new %}
+        <div class="col-md-4 my-2">
+
+            <div class="card" style="background: #5f788a">
+
+                <div class="card-body">
+                    <h5 class="card-title text-center text-light">{{ doc }}</h5>
+                        <div class="row justify-content-around">
+                            <div class="col-md-1.5">
+                                <a href="/instruction?x={{ doc }}" class="btn btn-primary">MCQ</a>
+                            </div>
+                            <div class="col-md-1.5">
+                                <a href="#" class="btn btn-primary">Coding</a>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+
+        </div>
+         {% endfor %}
+    </div>
+</div>
+</body>
+{% endblock content %}

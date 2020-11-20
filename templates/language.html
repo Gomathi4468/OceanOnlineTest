@@ -1,0 +1,59 @@
+{% extends "layout2.html" %}
+{% block content %}
+  <body>
+
+    <style>
+        .card{
+            transition: 0.5s ease;
+        }
+        .card:hover{
+        box-shadow: 5px 10px 18px #888888;
+    }
+    </style>
+
+    <div class="container">
+        <div class="row justify-content-around p-5">
+    <div class="card col-lg-3" style="width: 18rem;">
+        <h1 class="card-title" style="text-align: center;">PYTHON</h1>
+
+    <div class="card-body">
+        <img class="card-img-top" src="https://assets.stickpng.com/images/5848152fcef1014c0b5e4967.png" alt="Card image cap">
+
+
+    </div>
+    <div class="card-footer" style="text-align: center;">
+        <a href="/pythontopics" class="btn btn-outline-primary">Take Test</a>
+    </div>
+  </div>
+
+
+      <div class="card" style="width: 18rem;">
+        <h1 class="card-title" style="text-align: center;" >JAVA</h1>
+
+        <div class="card-body">
+            <img class="card-img-top" src="https://logos-download.com/wp-content/uploads/2016/10/Java_logo_icon.png" alt="Card image cap">
+
+
+        </div>
+        <div class="card-footer" style="text-align: center;">
+            <a href="/javatopics" class="btn btn-outline-primary">Take Test</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <h1 class="card-title" style="text-align: center;" >C</h1>
+
+        <div class="card-body">
+            <img class="card-img-top" src="https://cdn.iconscout.com/icon/free/png-512/c-programming-569564.png" alt="Card image cap">
+
+
+        </div>
+        <div class="card-footer" style="text-align: center;">
+            <a href="/ctopics" class="btn btn-outline-primary">Take Test</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+</body>
+{% endblock content %}

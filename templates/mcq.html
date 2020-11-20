@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  		<script type="text/javascript" src="main.js"></script>
+
+		<title>test page</title>
+
+		<style>
+
+			.img{
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				background: lightgray;
+			}
+			.count{
+				display: inline-flex;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				border: 1px solid gray;
+				transition: 0.3s ease;
+				cursor: pointer;
+
+			}
+			.countdown{
+				background: none;
+				border: none;
+				color: white;
+				font-weight: bolder;
+			}
+			.main:hover >.countdown{
+				color: black;
+			}
+			.count:hover{
+				 box-shadow: 0px 0px 15px #aaaaaa;
+			}
+			.card, .card-header, .card-footer{
+				border: none;
+				outline: none
+			}
+		</style>
+	</head>
+	<body onload="countdown();">
+		<!-- header start -->
+		<div class="navbar bg-info p-2">
+			<div class="navbar-brand">
+				<div class="img"></div>
+			</div>
+			<div class="container w-auto">
+				<h1 class="test_name text-light">{{ title }}</h1>
+			</div>
+
+        <button type="button" class="main btn btn-lg btn-outline-light">
+			<input class="countdown" type="button" id="h"  value="0" >
+			<input class="countdown" type="button" id="m" value="1" >
+			<input class="countdown" type="button" id="s" value="3" >
+			</button>
+		</div>
+		<!-- header end-->
+
+		<!-- body content Start -->
+
+			<div class="container-fluid">
+				<div class="row p-4">
+					<div class="col-sm-7">
+						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="card-header p-3 font-weight-bolder"><span>{{ new.qid }}</span> {{ new.question }}</div>
+                            <div class="card-body">
+                                <form action="#" method="POST">
+                                    <ol type="a" class="font-weight-bolder">
+                                        <li class="p-2"><input class="mx-2" type="radio" name="choice" value="op1" ><span class="options"> {{ new.a }}</span></li>
+                                        <li class="p-2"><input class="mx-2" type="radio" name="choice" value="op2"><span class="options"> {{ new.b }}</span></li>
+                                        <li class="p-2"><input class="mx-2" type="radio" name="choice" value="op3"><span class="options"> {{ new.c }}</span></li>
+                                        <li class="p-2"><input class="mx-2" type="radio" name="choice" value="op4"><span class="options"> {{ new.d }}</span></li></ol>
+                                </form>
+                            </div>
+    </div>
+
+  </div>
+   <div class="card-footer">
+
+      <button class="btn btn-outline-primary mx-3 px-5" href="#carouselExampleControls"  role="button" data-slide="prev">PREVIOUS</button>
+      <button class="btn btn-outline-primary mx-3 px-3" href="#carouselExampleControls" role="button" data-slide="next">SKIP</button>
+<!--      <button type="submit" formaction="/mcq1"  href="#carouselExampleControls" role="button" data-slide="next">NEXT</button>-->
+		   <button onclick="window.location='/mcq?x=1'"   class="btn btn-outline-primary mx-3 px-5" >NEXT</button>
+
+  </div>
+</div>
+					</div>
+					<div class="col-sm-5">
+
+						<div class="card">
+
+							<div class="card-body">
+								{% for doc in new1 %}
+								<div class="count bg-light m-3 col-md-3 text-center justify-content-center align-items-center "><h3>{{ doc }}</h3></div>
+								{% endfor %}
+							</div>
+
+							<div class="card-footer text-center">
+								<button type="button" class="btn btn-outline-primary mx-3 px-5" value="Redirect Me" onclick="Redirect();">submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+		<!-- body content Start -->
+
+
+<script>
+
+var h = document.getElementById("h");
+var m = document.getElementById("m");
+var s = document.getElementById("s");
+
+setInterval(function() {
+            timer();
+        }, 1000);
+
+function stop() {
+	alert("thaizhd")
+  clearInterval(setInterval);
+}
+
+function timer(){
+    if(h.value == 0 && m.value == 0 && s.value == 0){
+    Redirect();
+        h.value = 0;
+        m.value = 0;
+        s.value = 0;
+
+    }
+
+    else if(s.value != 0){
+        s.value--;
+    }
+    else if(m.value != 0 && s.value == 0){
+    	if (h.value == 0 && m.value <= 1){
+    	h.style.color = 'red'
+    	m.style.color = 'red'
+    	s.style.color = 'red'
+    	s.value = 59;
+        m.value--;
+   	 }
+   	 else {
+   	 	s.value = 59;
+        m.value--;
+   	 }
+
+    }
+    else if(h.value != 0 && m.value == 0){
+        m.value = 60;
+        h.value--;
+    }
+    return;
+}
+function Redirect() {
+
+            window.location='/instruction'
+
+        }
+		</script>
+	</body>
+	</html>	

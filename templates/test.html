@@ -1,0 +1,42 @@
+{% extends "layout2.html" %}
+{% block content %}
+<body>
+  <style type="text/css">
+  	.btn{
+  		transition: 0.5s;
+  	}
+  	.card{
+  		transition: 0.3s;
+  		border: none;
+  	}
+  	.card:hover{
+  		box-shadow: 5px 10px 18px #888888;
+  	}
+  </style>
+
+<div class="container pt-5 text-center">
+	<div class="row justify-content-around p-5">
+		<div class="col-6 text-center">
+			<div class="card bg-light">
+  				<div class="card-body">
+    				<a href="#" class="btn btn-outline-primary btn-block"><h1>CODING</h1></a>
+    				<h1 class="card-text pt-5">00</h1>
+  				</div>
+			</div>
+		</div>
+		<div class="col-6 text-center">
+			<div class="card bg-light">
+  				<div class="card-body">
+    				<a href="#" class="btn btn-outline-primary btn-block"><h1>MCQ</h1></a>
+    				<h1 class="card-text pt-5">00</h1>
+  				</div>
+			</div>
+		</div>
+	</div>
+	<a href="/language" class="btn btn-outline-primary mt-5"> Take Test</a>
+</div>
+
+
+</body>
+
+{% endblock content %}
